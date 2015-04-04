@@ -1,0 +1,35 @@
+# Test specification for torpedo ship
+
+Parameters:
+	<submarine-SHIP>:
+		invalid number. 					[error]
+		valid number. 						[property valid]
+	<target-SHIP>:
+		invalid number. 					[error]
+		valid number. 						[property valid]
+	Gun:
+		zero guns. 							[error]
+		one gun or more. 					[property HasGun]
+	Shells:
+		two or less. 						[error]
+		three or more. 						[property HasTorpedo]
+	Efficiency:
+		less than 60. 						[error]
+		60 or greater. 						[property Efficient]
+	Mobility:
+		not mobile. 						[error]
+		is mobile. 							[property Mobile]
+
+Environment:
+	Range:
+		zero range.							[property 90Percent]
+		one range. 							[property 45Percent]
+		two range. 							[property 30Percent] 
+		three range. 						[property 22.5Percent]
+		four range. 						[property 18Percent]
+		five range. 						[property 15Percent]
+		five or greater range. 				[property out_of_range]
+	Target:
+		not Hit. 							[no message]
+		Hit. 								[if out_of_range][message out of range]
+
